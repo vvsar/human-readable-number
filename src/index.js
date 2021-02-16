@@ -2,10 +2,13 @@ module.exports = function toReadable (number) {
   let units = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
   let teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
   let tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+    // zero
   if (number === 0) {
       return "zero";
   }
+   // create target string
   let newStr = "";
+   // hundreds
   for (let i = 1; i < 10; i++) {
     if (Math.floor(number / 100) !== i) {
       continue;
@@ -25,6 +28,7 @@ module.exports = function toReadable (number) {
       }
     }
   }
+    // teens
   if (number % 100 >=20) {
     for (let i = 2; i < 10; i++) {
       if (Math.floor((number % 100) / 10) !== i) {
@@ -37,6 +41,7 @@ module.exports = function toReadable (number) {
       }
     }
   }
+    // units
   if (number % 100 < 10 || number % 100 > 19) {
     for (let i = 1; i < 10; i++) {
       if (number % 10 !== i) {
